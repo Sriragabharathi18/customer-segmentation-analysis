@@ -110,8 +110,7 @@ plt.show()
 # ------------------------------------------------------------------------------
 optimal_k = 3
 kmeans_final = KMeans(n_clusters=optimal_k, init='k-means++', random_state=42, n_init=10)
-df['Cluster'] = kmeans_final.fit_transform(scaled_features).astype(str)
-
+df['Cluster'] = kmeans_final.fit_predict(scaled_features).astype(str)
 # Extract unscaled centroids for plotting
 centroids = scaler.inverse_transform(kmeans_final.cluster_centers_)
 
